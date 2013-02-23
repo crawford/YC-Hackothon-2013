@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+		<style type="text/css">
+			body {
+				padding: 50px 0px;
+				margin: 0px;
+				font-family:"Arial", Veranda, serif;
+			}
+			#title {
+				font-size: 2.0em;
+				font-weight: bold;
+				text-align: center;
+				margin-bottom: 50px;
+			}
+			.window
+			{
+				text-align: center;
+			}
+			.windowtitle {
+				font-size: 1.8em;
+				text-align: center;
+				display: inline-block;
+			}
+			.status {
+				display: inline-block;
+				width: 100px;
+				font-size: 1.5em;
+				font-weight: bold;
+			}
+			.buttoncontainer {
+				display: inline-block;
+			}
+			.openbutton {	
+				font-size: 1.2em;
+			}
+			.closebutton {	
+				font-size: 1.2em;
+			}
+			.statusopen {
+				color: #00AA00;
+			}
+			.statusclosed {
+				color: #AA0000;
+			}
+			ul {
+				list-style-type: none;
+				padding: 0px;
+				margin-left: 0px;
+			}
+		</style>
+		<script type="text/javascript">
+			function closeblinds() {
+				$("#livingroomclose")[0].disabled = true;
+				$("#livingroomopen")[0].disabled = false;
+				$("#livingroomstatus").html("Closed");
+				$("#livingroomstatus").addClass("statusclosed");
+				$("#livingroomstatus").removeClass("statusopen");
+			}
+
+			function openblinds() {
+				$("#livingroomopen")[0].disabled = true;
+				$("#livingroomclose")[0].disabled = false;
+				$("#livingroomstatus").html("Open");
+				$("#livingroomstatus").addClass("statusopen");
+				$("#livingroomstatus").removeClass("statusclosed");
+			}
+
+			window.onload=function() {
+				closeblinds();
+			}
+		</script>
+	</head>
+	<body>
+		<form>
+			<div id="title">
+				My Windows
+			</div>
+			<div>
+				<ul>
+					<li>
+						<div class="window">
+							<div class="windowtitle">
+								Living Room
+							</div>
+							<div class="status" id="livingroomstatus">
+							</div>
+							<div class="buttoncontainer">
+								<input type="button" value="Open" class="openbutton" id="livingroomopen" onclick="openblinds()" />
+								<input type="button" value="Close" class="closebutton" id="livingroomclose" onclick="closeblinds()" />
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</form>
+	</body>
+</html>

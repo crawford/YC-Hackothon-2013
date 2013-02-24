@@ -1,0 +1,34 @@
+function eventHandler(e) {
+    if (e == 1) {
+        on();
+    }
+    else {
+        off();
+    }
+}
+agent.on("power",eventHandler);
+
+//hell world sample code
+up <- hardware.pin2;
+down <- hardware.pin5;
+
+// Register with the server
+imp.configure("First Program", [], []);
+
+// Display our important message
+server.show("Hello, World!");
+
+hardware.pin2.configure(PWM_OUT, 0.02, 0.0);
+hardware.pin5.configure(PWM_OUT, 0.02, 0.0);
+
+function on(){
+    up.write(1.0);
+    imp.wakeup(1.0, function(){up.write(0.0)});
+} 
+
+function off(){
+    down.write(1.0);
+    imp.wakeup(1.0, function(){down.write(0.0)});
+} 
+
+// End of code.

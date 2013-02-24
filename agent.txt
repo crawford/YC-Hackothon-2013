@@ -1,0 +1,8 @@
+function mywebserver(request,res)
+{
+    server.log("body" + request.path)
+  if (request.path == "/open"){
+    device.send("power", 0);
+  } else if (request.path == "/close") {
+    device.send("power", 1);
+  }
